@@ -21,7 +21,7 @@ export class SchemaGenerator {
         protected readonly config?: Config,
     ) {}
 
-    public createSchema(fullNames?: string | string[]): Schema {
+    public createSchema(fullNames?: string[]): Schema {
         const rootNodes = this.getRootNodes(castArray(fullNames));
         return this.createSchemaFromNodes(rootNodes);
     }

@@ -12,7 +12,7 @@ export interface Config {
      * Can specify more than once to generate multiple schemas.
      * Use "*" to generate schemas for all exported types.
      */
-    type?: string | string[];
+    type?: string[];
 
     /**
      * Minify the output JSON schema (no whitespace).
