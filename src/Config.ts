@@ -11,7 +11,7 @@ export interface Config {
      * Name of the type(s)/interface(s) to generate schema for.
      * Use "*" to generate schemas for all exported types.
      */
-    type?: string | string[];
+    type?: string[];
 
     /**
      * Minify the output JSON schema (no whitespace).

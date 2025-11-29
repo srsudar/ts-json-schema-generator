@@ -10,7 +10,7 @@ describe("vega-lite", () => {
         const config: CompletedConfig = {
             ...DEFAULT_CONFIG,
             path: `node_modules/vega-lite/src/index.ts`,
-            type: "TopLevelSpec",
+            type: ["TopLevelSpec"],
             encodeRefs: false,
             skipTypeCheck: true,
         };

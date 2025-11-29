@@ -26,7 +26,7 @@ const basePath = "test/config";
 
 function assertSchema(
     name: string,
-    userConfig: Config & { type: string | string[] },
+    userConfig: Config & { type: string[] },
     tsconfig?: boolean,
     formatterAugmentor?: FormatterAugmentor,
     parserAugmentor?: ParserAugmentor,
@@ -164,7 +164,7 @@ describe("config", () => {
     it(
         "expose-all-topref-true",
         assertSchema("expose-all-topref-true", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "all",
             topRef: true,
             jsDoc: "none",
@@ -173,7 +173,7 @@ describe("config", () => {
     it(
         "expose-all-topref-true-not-exported",
         assertSchema("expose-all-topref-true-not-exported", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "all",
             topRef: true,
             jsDoc: "none",
@@ -183,7 +183,7 @@ describe("config", () => {
     it(
         "expose-all-topref-false",
         assertSchema("expose-all-topref-false", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "all",
             topRef: false,
             jsDoc: "none",
@@ -192,7 +192,7 @@ describe("config", () => {
     it(
         "expose-all-topref-false-not-exported",
         assertSchema("expose-all-topref-false-not-exported", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "all",
             topRef: false,
             jsDoc: "none",
@@ -202,7 +202,7 @@ describe("config", () => {
     it(
         "expose-none-topref-true",
         assertSchema("expose-none-topref-true", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "none",
             topRef: true,
             jsDoc: "none",
@@ -211,7 +211,7 @@ describe("config", () => {
     it(
         "expose-none-topref-false",
         assertSchema("expose-none-topref-false", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "none",
             topRef: false,
             jsDoc: "none",
@@ -221,7 +221,7 @@ describe("config", () => {
     it(
         "expose-export-topref-true",
         assertSchema("expose-export-topref-true", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "none",
@@ -230,7 +230,7 @@ describe("config", () => {
     it(
         "expose-export-topref-false",
         assertSchema("expose-export-topref-false", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: false,
             jsDoc: "none",
@@ -240,7 +240,7 @@ describe("config", () => {
     it(
         "jsdoc-complex-none",
         assertSchema("jsdoc-complex-none", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "none",
@@ -249,7 +249,7 @@ describe("config", () => {
     it(
         "jsdoc-complex-basic",
         assertSchema("jsdoc-complex-basic", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "basic",
@@ -258,7 +258,7 @@ describe("config", () => {
     it(
         "jsdoc-complex-extended",
         assertSchema("jsdoc-complex-extended", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -267,7 +267,7 @@ describe("config", () => {
     it(
         "jsdoc-description-only",
         assertSchema("jsdoc-description-only", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -277,7 +277,7 @@ describe("config", () => {
     it(
         "jsdoc-hidden",
         assertSchema("jsdoc-hidden", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -287,7 +287,7 @@ describe("config", () => {
     it(
         "jsdoc-hidden-types",
         assertSchema("jsdoc-hidden-types", {
-            type: "MyType",
+            type: ["MyType"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -297,7 +297,7 @@ describe("config", () => {
     it(
         "jsdoc-hidden-types-intersection",
         assertSchema("jsdoc-hidden-types-intersection", {
-            type: "MyType",
+            type: ["MyType"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -307,7 +307,7 @@ describe("config", () => {
     it(
         "jsdoc-inheritance",
         assertSchema("jsdoc-inheritance", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -316,7 +316,7 @@ describe("config", () => {
     it(
         "jsdoc-inheritance-exclude",
         assertSchema("jsdoc-inheritance-exclude", {
-            type: "MyType",
+            type: ["MyType"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -327,7 +327,7 @@ describe("config", () => {
     it(
         "jsdoc-complex-extended",
         assertSchema("jsdoc-complex-extended", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: true,
             jsDoc: "extended",
@@ -337,7 +337,7 @@ describe("config", () => {
     it(
         "markdown-description",
         assertSchema("markdown-description", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: false,
             jsDoc: "extended",
@@ -348,7 +348,7 @@ describe("config", () => {
     it(
         "full-description",
         assertSchema("full-description", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "export",
             topRef: false,
             jsDoc: "extended",
@@ -362,7 +362,7 @@ describe("config", () => {
         assertSchema(
             "tsconfig-support",
             {
-                type: "MyObject",
+                type: ["MyObject"],
                 expose: "all",
                 topRef: false,
                 jsDoc: "none",
@@ -374,7 +374,7 @@ describe("config", () => {
     it(
         "no-ref-encode",
         assertSchema("no-ref-encode", {
-            type: "MyObject",
+            type: ["MyObject"],
             expose: "all",
             encodeRefs: false,
             topRef: true,
@@ -385,7 +385,7 @@ describe("config", () => {
     it(
         "additional-properties",
         assertSchema("additional-properties", {
-            type: "MyObject",
+            type: ["MyObject"],
             additionalProperties: true,
         }),
     );
@@ -407,7 +407,7 @@ describe("config", () => {
     it(
         "mapped-intersection",
         assertSchema("mapped-intersection", {
-            type: "MyObject",
+            type: ["MyObject"],
             additionalProperties: true,
         }),
     );
@@ -415,7 +415,7 @@ describe("config", () => {
     it(
         "mapped-intersection-complex",
         assertSchema("mapped-intersection-complex", {
-            type: "MyObject",
+            type: ["MyObject"],
             additionalProperties: true,
         }),
     );
@@ -423,7 +423,7 @@ describe("config", () => {
     it(
         "mapped-intersection-index",
         assertSchema("mapped-intersection-index", {
-            type: "MyObject",
+            type: ["MyObject"],
             additionalProperties: true,
         }),
     );
@@ -431,7 +431,7 @@ describe("config", () => {
     it(
         "mapped-index-any",
         assertSchema("mapped-index-any", {
-            type: "*",
+            type: ["*"],
             additionalProperties: true,
         }),
     );
@@ -439,14 +439,14 @@ describe("config", () => {
     it(
         "arrow-function-parameters",
         assertSchema("arrow-function-parameters", {
-            type: "myFunction",
+            type: ["myFunction"],
             expose: "all",
         }),
     );
     it(
         "function-parameters-all",
         assertSchema("function-parameters-all", {
-            type: "*",
+            type: ["*"],
         }),
     );
 
@@ -455,7 +455,7 @@ describe("config", () => {
         assertSchema(
             "custom-formatter-configuration",
             {
-                type: "MyObject",
+                type: ["MyObject"],
             },
             false,
             (formatter) => formatter.addTypeFormatter(new ExampleFunctionTypeFormatter()),
@@ -467,7 +467,7 @@ describe("config", () => {
         assertSchema(
             "custom-formatter-configuration-override",
             {
-                type: "MyObject",
+                type: ["MyObject"],
             },
             false,
             (formatter) => formatter.addTypeFormatter(new ExampleEnumTypeFormatter()),
@@ -479,7 +479,7 @@ describe("config", () => {
         assertSchema(
             "custom-formatter-configuration-circular",
             {
-                type: "MyObject",
+                type: ["MyObject"],
             },
             false,
             (formatter, circularReferenceTypeFormatter) =>
@@ -492,7 +492,7 @@ describe("config", () => {
         assertSchema(
             "custom-parser-configuration",
             {
-                type: "MyObject",
+                type: ["MyObject"],
             },
             false,
             undefined,
@@ -505,7 +505,7 @@ describe("config", () => {
         assertSchema(
             "custom-parser-configuration-override",
             {
-                type: "MyObject",
+                type: ["MyObject"],
             },
             false,
             undefined,
@@ -516,7 +516,7 @@ describe("config", () => {
     it(
         "functions-hide",
         assertSchema("functions-hide", {
-            type: "MyType",
+            type: ["MyType"],
             functions: "hide",
         }),
     );
@@ -524,7 +524,7 @@ describe("config", () => {
     it(
         "functions-comment",
         assertSchema("functions-comment", {
-            type: "MyType",
+            type: ["MyType"],
             functions: "comment",
         }),
     );
